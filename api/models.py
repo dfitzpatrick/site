@@ -4,7 +4,7 @@ from django.contrib.postgres import fields as pgfields
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.db import models
 
-from .validators import validate_tag_embed
+from .validators import validate_snakename, validate_tag_embed
 
 
 class ModelReprMixin:
@@ -92,7 +92,8 @@ class SnakeName(ModelReprMixin, models.Model):
     name = models.CharField(
         primary_key=True,
         max_length=100,
-        help_text="The regular name for this snake, e.g. 'Python'."
+        help_text="The regular name for this snake, e.g. 'Python'.",
+        validators=[validate_snakename]
     )
     scientific = models.CharField(
         max_length=150,
