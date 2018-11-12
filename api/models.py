@@ -97,7 +97,8 @@ class SnakeName(ModelReprMixin, models.Model):
     )
     scientific = models.CharField(
         max_length=150,
-        help_text="The scientific name for this snake, e.g. 'Python bivittatus'."
+        help_text="The scientific name for this snake, e.g. 'Python bivittatus'.",
+        validators=[validate_snakename]
     )
 
     def __str__(self):

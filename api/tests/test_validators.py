@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from ..validators import validate_tag_embed
+from ..validators import validate_snakename, validate_tag_embed
 
 
 REQUIRED_KEYS = (
@@ -200,3 +200,14 @@ class TagEmbedValidatorTests(TestCase):
                 'name': "Bob"
             }
         })
+
+
+class SnakeNameValidatorTests(TestCase):
+    def test_name_numbers(self):
+        with self.assertRaises(ValidationError):
+            validate_snakename(
+                {
+                    'name': '123hhh',
+                    'scientific': 'snek123'
+                }
+            )
