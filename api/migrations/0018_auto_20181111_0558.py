@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='snakename',
             name='name',
-            field=models.CharField(help_text="The regular name for this snake, e.g. 'Python'.", max_length=100, primary_key=True, serialize=False, validators=[api.validators.validate_snakename]),
+            field=models.CharField(help_text="The regular name for this snake, e.g. 'Python'.", max_length=100, primary_key=True, serialize=False, validators=[]),
         ),
     ]
