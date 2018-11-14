@@ -22,17 +22,6 @@ def validate_tag_embed_fields(fields):
                 validator(value)
 
 
-def validate_snakename(scientific):
-        for i in scientific:
-            try:
-                if int(i):
-                    raise ValidationError(
-                        "No numbers allowed in snake name"
-                    )
-            except ValueError:
-                continue
-
-
 def validate_tag_embed_footer(footer):
     field_validators = {
         'text': (
